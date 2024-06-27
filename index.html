@@ -1,0 +1,107 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+	<meta charset="UTF-8">
+	<meta name="viewport" content="width=device-width, initial-scale=1.0">
+	<title>Calculadora Limecoin</title>
+	<link rel="stylesheet" href="css/main.css">
+</head>
+<body onload="calcular(), blockAmount()">
+	<header class="header">
+		<div class="logo">
+			<img src="img/logo_lime.svg" alt="">
+		</div>
+
+		<div class="titulo-lime">
+			<h1>CALCULADORA LIMERCOIN</h1>
+			<h2>Estima tus ganancias rápida y eficazmente.</h2>
+		</div>
+	</header>
+
+	<main class="main">
+		<div class="contenedor-form">
+			<div class="formulario" >
+				<div class="group-input">
+					<label for="inputNetworkPower">Enter Network Power For Desired Coin</label>
+					<div class="roller-input-group">
+                            <input id="inputNetworkPower" type="number" name="inputNetworkPower" class="roller-input-number" oninput="calcular()">
+                            <select id="selectNetworkPower" name="" class="roller-select"onchange="calcular()">
+                                <option value="GH/s">GH/s</option>
+                                <option value="TH/s">TH/s</option>
+                                <option value="PH/s">PH/s</option>
+                                <option value="EH/s" selected>EH/s</option>
+                            </select>
+                        </div>
+				</div>
+				<div class="group-input">
+					<label for="inputUserPower">Enter Your Desired Goal Power</label>
+					<div class="roller-input-group">
+                            <input id="inputUserPower" type="number" name="inputUserPower" class="roller-input-number" oninput="calcular()">
+                            <select name="" id="selectUserPower" class="roller-select" onchange="calcular()">
+                                <option value="GH/s">GH/s</option>
+                                <option value="TH/s" selected>TH/s</option>
+                                <option value="PH/s">PH/s</option>
+                                <option value="EH/s">EH/s</option>
+                            </select>
+                        </div>
+				</div>
+				<div class="group-input">
+					<label for="selectBlockReward">Enter Block Reward For Desired Coin</label>
+					<div class="roller-input-group">
+                            <input id="selectBlockReward" type="number" name="inputNetworkPower" class="roller-input-number" step="any" oninput="calcular();">
+                            <select id="selectBlock" name="selectBlockReward" class="roller-select" onchange="blockAmount(),calcular()">
+                            	<option value="LMT" selected>LMT</option>
+                                <option value="BTC">BTC</option>
+                                <option value="DOGE">DOGE</option>
+                                <option value="LTC">LTC</option>
+                            </select>
+                        </div>
+				</div>
+				<div class="group-input">
+					<label for="TimerBlockReward">Enter Block Timer (Update ONLY if needed)</label>
+					<div class="roller-input-group  time">
+                    	<input id="TimerBlockReward" type="number" name="TimerBlockReward" class="roller-input-number" step="any" value="10" oninput="calcular()">
+                    </div>
+				</div>
+				<div class="group-input">
+					<button onclick="calcular()">Calculate</button>
+				</div>
+			</div>
+		</div>
+
+		<div class="contenedor-reward">
+			<div class="reward">
+				<div class="titulo-reward">
+					<h2>Calculate reward</h2>
+				</div>
+
+				<div class="group-reward">
+					<span class="span-reward">Expected Reward:</span>
+					<span id="expected" class="span-reward-number"></span>
+				</div>
+				<div class="group-reward">
+					<span class="span-reward">Daily Reward:</span>
+					<span id="daily" class="span-reward-number"></span>
+				</div>
+				<div class="group-reward">
+					<span class="span-reward">Weekly Reward:</span>
+					<span id="weekly" class="span-reward-number"></span>
+				</div>
+				<div class="group-reward">
+					<span class="span-reward">Monthly Reward:</span>
+					<span id="monthly" class="span-reward-number"></span>
+				</div>
+			</div>
+		</div>
+
+
+	</main>
+
+	<footer class="footer">
+		<p>Calculadora isn't endorsed by Limercoin and does not reflect the views or opinions of anyone officially involved in producing and managing Limercoin and their service(s).</p>
+	</footer>
+	<script src="https://cdn.jsdelivr.net/npm/axios/dist/axios.min.js"></script>
+
+	<script src="js/main.js"></script>
+</body>
+</html>
